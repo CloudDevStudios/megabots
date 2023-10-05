@@ -123,8 +123,7 @@ class Bot:
     def ask(self, question: str, k=1) -> str:
         # Retrieve the answer to the given question and return it
         input_documents = self.search_index.similarity_search(question, k=k)
-        answer = self.chain.run(input_documents=input_documents, question=question)
-        return answer
+        return self.chain.run(input_documents=input_documents, question=question)
 
 
 SUPPORTED_TASKS = {
